@@ -21,7 +21,8 @@ def enviar_archivo(url, archivo_ruta):
 
         # Verificar la respuesta del servidor
         if response.status_code == 200:
-            print("Archivo enviado correctamente.")
+            #print("Archivo enviado correctamente.")
+            return response.json()
         else:
             print(f"Error al enviar el archivo. Código de estado: {response.status_code}")
     except Exception as e:
@@ -37,7 +38,7 @@ def main():
     url_servidor = "http://181.99.179.156:9000/process_json"
     ruta_archivo = sys.argv[1]
     
-    enviar_archivo(url_servidor, ruta_archivo)
+    print(enviar_archivo(url_servidor, ruta_archivo))
 
 if __name__ == '__main__':
     main()
