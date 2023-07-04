@@ -30,8 +30,8 @@ def enviar_archivo(url, archivo_ruta):
 def main():
     if len(sys.argv) != 2:
         print("Uso: python script.py <Ruta_del_archivo>")
-        print(len(sys.argv))
-        print(str(sys.argv))
+        print('len:', len(sys.argv))
+        print('lista:', str(sys.argv))
         sys.exit(1)
 
     url_servidor = "http://181.99.179.156:9000/process_json"
