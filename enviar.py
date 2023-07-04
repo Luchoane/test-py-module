@@ -28,6 +28,8 @@ def enviar_archivo(url, archivo_ruta):
         print(f"Error: {e}")
 
 def main():
+    print(len(sys.argv))
+    print(str(sys.argv))
     if len(sys.argv) != 2:
         print("Uso: python script.py <Ruta_del_archivo>")
         sys.exit(1)
