@@ -14,7 +14,7 @@ def enviar_archivo(url, archivo_ruta):
         }
 
         # Convertir el objeto JSON en una cadena JSON
-        datos_json_str = json.dumps(datos_json)
+        datos_json_str = json.dumps(datos_json["contenido"])
 
         p = '''
         Hola ChatGPT, necesito tu ayuda para identificar las vulnerabilidades en este código. Por favor, analiza el siguiente fragmento y completa el JSON con la información pertinente, responde UNICAMENTE con el json:
