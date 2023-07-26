@@ -16,8 +16,39 @@ def enviar_archivo(url, archivo_ruta):
         # Convertir el objeto JSON en una cadena JSON
         datos_json_str = json.dumps(datos_json)
 
+        p = '''
+        Hola ChatGPT, necesito tu ayuda para identificar las vulnerabilidades en este código. Por favor, analiza el siguiente fragmento y completa el JSON con la información pertinente, responde UNICAMENTE con el json:
+
+        {
+        "issue": "*",
+        "remediation": "*",
+        "vulnerable_line": "*"
+        }
+
+        Por favor, completa el JSON con la siguiente información:
+
+        - En el campo "issue", especifica la vulnerabilidad encontrada.
+        - En el campo "remediation", sugiere una solución o una forma de corregir la vulnerabilidad.
+        - En el campo "vulnerable_line", indica la línea de código donde se encuentra la vulnerabilidad.
+
+        ¡Gracias por tu ayuda!
+
+        Code snippet: """
+        
+        %s
+
+        """
+        ''' % (datos_json_str)
+
+        payload = {
+            "model": "text-davinci-003",
+            "prompt": p,
+            "temperature": 0,
+            "max_tokens": 700
+        }
+
         # Enviar la solicitud POST con el JSON al servidor
-        response = requests.post(url, json=datos_json)
+        response = requests.post(url, json=payload)
 
         # Verificar la respuesta del servidor
         if response.status_code == 200:
