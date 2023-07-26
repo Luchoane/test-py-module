@@ -64,7 +64,7 @@ def analizar_prompt_openai(api_key, archivo_ruta):
         if response.status_code == 200:
             respuesta_json = response.json()
             # print("Respuesta de OpenAI:")
-            print(respuesta_json["choices"][0]["text"])
+            # print(respuesta_json["choices"][0]["text"])
             # print('\n----------------------\n')
             # print(respuesta_json)
             return respuesta_json["choices"][0]["text"]
