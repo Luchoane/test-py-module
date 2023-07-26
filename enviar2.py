@@ -55,7 +55,7 @@ def analizar_prompt_openai(api_key, archivo_ruta):
             "max_tokens": 700
         }
         
-        print(payload)
+        # print(payload)
         
         # Enviar la solicitud POST con el prompt a la API de OpenAI
         response = requests.post(url, headers=headers, json=payload)
