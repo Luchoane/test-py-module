@@ -24,7 +24,7 @@ def analizar_prompt_openai(api_key, archivo_ruta):
         datos_json_str = json.dumps(datos_json["contenido"])
 
         p = '''
-        Hola ChatGPT, necesito tu ayuda para identificar las vulnerabilidades CRITICAS en este código. Por favor, analiza el siguiente fragmento y completa el JSON con la información pertinente, responde UNICAMENTE con el json. En caso de que la vulnerabilidad no sea lo suficientemente crítica, rellena los campos del json con "NO CRITICAMENTE VULNERABLE":
+        Hola ChatGPT, necesito tu ayuda para identificar las POTENCIALES vulnerabilidades CRITICAS en este código. Por favor, analiza el siguiente fragmento (recuerda que no es el código completo, sólo un fragmento) y completa el JSON con la información pertinente, responde UNICAMENTE con el json. En caso de que la POTENCIAL vulnerabilidad no sea lo suficientemente crítica, rellena los campos del json con "NO CRITICAMENTE VULNERABLE":
 
         {
         "issue": "*",
