@@ -36,7 +36,7 @@ def analizar_prompt_openai(api_key, archivo_ruta):
 
         - En el campo "issue", especifica la vulnerabilidad encontrada.
         - En el campo "remediation", sugiere una solución o una forma de corregir la vulnerabilidad.
-        - En el campo "vulnerable_line", indica textualmente la línea de código donde se encuentra la vulnerabilidad, no el número de línea.
+        - En el campo "vulnerable_line", indica literalmente la línea de código donde se encuentra la vulnerabilidad, no el número de línea, copiandola.
 
         ¡Gracias por tu ayuda!
 
