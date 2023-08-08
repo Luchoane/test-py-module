@@ -24,7 +24,9 @@ def analizar_prompt_openai(api_key, archivo_ruta):
         datos_json_str = json.dumps(datos_json["contenido"])
 
         p = '''
-        Hola ChatGPT, necesito tu ayuda para identificar las POTENCIALES vulnerabilidades CRITICAS en este código. Por favor, analiza el siguiente fragmento (recuerda que no es el código completo, sólo un fragmento) y completa el JSON con la información pertinente, responde UNICAMENTE con el json. En caso de que la POTENCIAL vulnerabilidad no sea lo suficientemente crítica, rellena los campos del json con "NO CRITICAMENTE VULNERABLE":
+        Hola ChatGPT, necesito tu ayuda para identificar las POTENCIALES vulnerabilidades CRITICAS en este código. Por favor, analiza el siguiente fragmento y completa el JSON con la información pertinente. Solo marca como críticamente vulnerable si consideras que la vulnerabilidad representa un riesgo significativo según OWASP.
+
+        Por favor, completa el JSON con la siguiente información:
 
         {
         "issue": "*",
@@ -32,12 +34,10 @@ def analizar_prompt_openai(api_key, archivo_ruta):
         "vulnerable_line": "*"
         }
 
-        Por favor, completa el JSON con la siguiente información:
-
-        - En el campo "issue", especifica la vulnerabilidad encontrada.
+        - En el campo "issue", especifica la vulnerabilidad encontrada. Si una vulnerabilidad coincide con un riesgo crítico en la lista de los 10 principales riesgos de seguridad en aplicaciones web de OWASP, considera marcarla como "CRITICAMENTE VULNERABLE". De lo contrario, utiliza "NO CRITICAMENTE VULNERABLE".
         - En el campo "remediation", sugiere una solución o una forma de corregir la vulnerabilidad.
-        - En el campo "vulnerable_line", indica literalmente la línea de código donde se encuentra la vulnerabilidad, no el número de línea, copiandola.
-
+        - En el campo "vulnerable_line", indica literalmente la línea de código donde se encuentra la vulnerabilidad, no el número de línea, copiándola.
+        
         ¡Gracias por tu ayuda!
 
         Code snippet: """
